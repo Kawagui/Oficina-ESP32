@@ -68,7 +68,7 @@ O sensor digital de toque TTP223B é de simples funcionamento, mudando o sinal q
 
 <p align="center">
 Figura - Diagrama do circuito<br/>
-  <img src="https://github.com/Anemaygi/SMAC/blob/master/src/circuitoa.png" width="400" /><br/>
+  <img src="Circuito.JPG" width="400" /><br/>
 </p>
 Informações importantes sobre o circuito, onde colocá-lo, entre outros.
 <br/>
