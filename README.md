@@ -24,11 +24,11 @@ Não precisa colocar muitas informações técnicas aqui, só deixe sua ideia cl
 | Quantidade | Nome | Link para referência |
 | --- | --- | --- |
 | 1 | ESP32 e cabo USB | https://www.baudaeletronica.com.br/placa-doit-esp32-bluetooth-e-wifi.html |
-| 4 | Sensor de Toque Touch Capacitivo TTP223B | https://www.baudaeletronica.com.br/sensor-touch-capacitivo-ttp223b.html |
-| 4 | Sensor de Temperatura Digital DS18B20 tipo TO92 | https://www.baudaeletronica.com.br/sensor-de-temperatura-digital-ds18b20.html |
+| 1 | Buzzer ativo programável | https://www.eletrogate.com/buzzer-ativo-5v?utm_source=Site&utm_medium=GoogleMerchant&utm_campaign=GoogleMerchant&gad=1&gclid=Cj0KCQjwk96lBhDHARIsAEKO4xauBy1Zdvprys4j1ThOaqRjedv45X4-ec5x3n0ZeytOvHP0reTzkQkaAu_0EALw_wcB |
+| 1 | Sensor de distância ultrassônico HC-SR04 | https://www.baudaeletronica.com.br/produto/sensor-de-distancia-ultrassonico-hc-sr04.html |
+| 1 | Led RGB | Ainda a achar |
 | X | Jumpers variados | --- |
 | 1 | Protoboard | --- |
-| 1 | Resistor 100 ohms | --- |
 | 1 | Fonte de alimentação - PowerBank | https://www.americanas.com.br/produto/2706391331 |
 
 ### Lista de conexões
