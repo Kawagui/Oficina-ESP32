@@ -1,4 +1,5 @@
-# Oficina-ESP32
+# Owlficina - Microcontroladores ESP32
+
 ```Este é o template básico do relatório do curso. Fique à vontade para adicionar mais tópicos, mas preencha todos os tópicos que estão aqui! Este documento está em markdown, mas fique à vontade para criar um documento de texto, desde que contenha os mesmos tópicos. Sugerimos que subam o código e o relatório (como README.md) no github ou, caso não seja possível, código e github como uma pasta zipada no final do curso.```
 
 
@@ -35,11 +36,10 @@ Não precisa colocar muitas informações técnicas aqui, só deixe sua ideia cl
 
 | Componente | Pino da placa |
 | --- | --- |
-| Sensor de Toque A | 21 |
-| Sensor de Toque B | 19 |
-| Sensor de Toque C | 23 |
-| Sensor de Toque D | 22 |
-| Sensores de temperatura | 4 |
+| Sensor de Distância Trigger | 5 |
+| Sensor de Distância Echo | 4 |
+| Led RGB | 13 |
+| Buzzer | 15 |
 
 
 ### Funcionamento dos sensores e atuadores
@@ -70,6 +70,10 @@ O sensor digital de toque TTP223B é de simples funcionamento, mudando o sinal q
 Figura - Diagrama do circuito<br/>
   <img src="Circuito.JPG" width="400" /><br/>
 </p>
+Os fios pretos foram usados para representar a conexão com pino GND;
+
+Os fios vermelhos foram usados para representar a conexão de alimentação do componente;
+
 Informações importantes sobre o circuito, onde colocá-lo, entre outros.
 <br/>
 
@@ -92,10 +96,16 @@ Não precisa ser muito detalhado, apenas o suficiente para que seu código seja 
 
 ### Features implementadas
 
+- [x] Buzzer programado com diferentes frequências e com diferentes frequências de beeps;
+- [x] Led RGB piscando diferentes cores;
+- [x] Sensor de presença que pega uma distância em mm;
+- [x] Emitir uma frequência de som e luz ao detectar uma presença dentro de um determinado intervalo
 - [x] Identificação da mudança de posição na cadeira *(exemplo de features que já estão funcionando no projeto)*
 
 
 ### Features para incrementar no projeto
 
+- [ ] Implementar uma tela OLed para apresentar uma mensagem em alguma distância;
+- [ ] Emitir ritmos músicais com o Buzzer;
 - [ ] Possibilidade do usuário configurar o tempo e a temperatura para os alertas *(exemplo de features que as pessoas podem contribuir no projeto)*
 
