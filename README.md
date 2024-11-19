@@ -27,39 +27,56 @@ Não precisa colocar muitas informações técnicas aqui, só deixe sua ideia cl
 | 1 | ESP32 e cabo USB | https://www.baudaeletronica.com.br/placa-doit-esp32-bluetooth-e-wifi.html |
 | 1 | Buzzer ativo programável | https://www.eletrogate.com/buzzer-ativo-5v?utm_source=Site&utm_medium=GoogleMerchant&utm_campaign=GoogleMerchant&gad=1&gclid=Cj0KCQjwk96lBhDHARIsAEKO4xauBy1Zdvprys4j1ThOaqRjedv45X4-ec5x3n0ZeytOvHP0reTzkQkaAu_0EALw_wcB |
 | 1 | Sensor de distância ultrassônico HC-SR04 | https://www.baudaeletronica.com.br/produto/sensor-de-distancia-ultrassonico-hc-sr04.html |
-| 1 | Led RGB | Ainda a achar |
+| 1 | NeoPixel Led RGB (WS2812) | https://pt.aliexpress.com/item/1005001971806517.html?src=google |
 | X | Jumpers variados | --- |
 | 1 | Protoboard | --- |
 | 1 | Fonte de alimentação - PowerBank | https://www.americanas.com.br/produto/2706391331 |
+
+#### ❕ Disclaimer
+O Led RGB utilizado neste circuito é diferente do que se encontra na imagem do circuito e também da referência
 
 ### Lista de conexões
 
 | Componente | Pino da placa |
 | --- | --- |
-| Sensor de Distância Trigger | 5 |
-| Sensor de Distância Echo | 4 |
+| Sensor de Distância (Trigger) | 5 |
+| Sensor de Distância (Echo) | 4 |
 | Led RGB | 13 |
 | Buzzer | 15 |
 
 
 ### Funcionamento dos sensores e atuadores
 
-#### Sensor de temperatura DS18B20 tipo TO92
+#### Sensor de distância ultrassônico HC-SR04
 
-O DS18B20 é um sensor de temperatural digital que realiza medições na faixa de -55°C até 125°C em graus celsius sem a necessidade de um componente externo para isso. O sensor utiliza o protocolo One-Wire, ou seja, sua comunicação é feita por um único fio de dados (além do VCC e GND), além de possuir um código ID próprio de 64 bits, permitindo a conexão de até 127 sensores num mesmo barramento com endereços diferentes, poupando espaço do projeto. (Especificação técnica: https://www.curtocircuito.com.br/datasheet/sensor/temperatura_DS18B20.pdf)
+Para começar uma medida, o pino TRIG do módulo deve receber um pulso alto, ou seja, 5V do microcontrolador por pelo menos 10us, isso vai iniciar o sensor, o qual vai enviar 8 ciclos de sinal ultrasônico a 40kHz e esperar pelo mesmo sinal refletido. Quando o sensor detecta o sinal de volta, ele vai setar o pino ECHO em nível lógico alto, ou seja, 5V e vai esperar por um período que é proporcional à distância. Para obter a distância, basta medir o tempo que o pino Echo fica com nível lógico alto, ou seja:
 
-Este sensor posui precisão de mais ou menos 0,5°C na faixa de medição de -10°C até 85°C. Suas principais características são: 
-- Chip: DS18B20;
-- Tensão de operação: 3 a 5VDC;
-- Consumo: 1,5mA;
-- Comunicação: 1 fio;
-- Faixa de medição: -55° a 125°C;
-- Resolução de saída: 9 a 12 bits (programável);
-- Tempo de conversão: 750ms (12-bits);
-- Precisão: ±0,5 entre -10°C e 85°C;
+Tempo = Largura do Pulso em Echo, em micro segundos
+
+Logo, Distância em centímetros = Tempo / 58
+
+ou Distância em polegadas = Tempo / 148
+
+Ou você pode usar a velocidade do som, que é de 340m/s.
+
+(Especificação técnica: https://d229kd5ey79jzj.cloudfront.net/620/HCSR04.pdf)
+
+Suas principais características são: 
+
+- Tensão de Alimentação: 5VDC;
+- Corrente quiescente: < 2mA;
+- Corrente em funcionamento: 15mA;
+- Ângulo de medida: < 15°;
+- Distância de detecção: de 2cm a 400cm;
+- Resolução: 3mm;
+- Dimensões: 45mm x 20mm x 15mm;
+- Frequência ultrasônica: 40kHz;
 
 
 #### Sensor de toque TTP223B
+O Módulo LED RGB KY-016 foi desenvolvido para facilitar projetos que necessitam de um LED RGB em sua composição. Este módulo dispensa o uso de resistores para utilizá-lo por já conter em sua PCB os resistores necessários para manter o funcionamento do LED correto e seguro.
+
+Trazendo uma grande versatilidade no desenvolvimento dos projetos, o Módulo LED RGB KY-016 conta com 4 pinos, sendo eles 3 pinos para as conexões do LED: Vermelho, Verde e Azul, e um pino de GND com símbolo de "-" na placa para conexão do GND do microcontrolador ou fonte de alimentação.
 
 O sensor digital de toque TTP223B é de simples funcionamento, mudando o sinal quando há um toque. Sua tensão de operação é entre 2-5, 5V; a saída de estado alto é 0,8V e baixo de 0,3 V. O tempo de resposta é de 220 ms (em estado baixo) e 60 ms (em estado alto), contando com as dimensões de 24 x 24 x 7,2 mm (Especificação técnica: https://files.seeedstudio.com/wiki/Grove-Touch_Sensor/res/TTP223.pdf)
 
